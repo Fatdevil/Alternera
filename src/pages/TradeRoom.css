@@ -1,0 +1,230 @@
+.trade-room {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg-color);
+}
+
+.trade-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.trade-peer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.peer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #db2777;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.trade-peer h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.trade-peer span {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.trade-table {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.trade-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-color);
+  padding: 20px;
+}
+
+.side-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.side-header h3 {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.value-badge {
+  background: var(--bg-color);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+}
+
+.offer-zone {
+  flex: 1;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
+  min-height: 140px;
+  position: relative;
+  background: #fafafa;
+}
+
+.offered-item {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.cash-badge {
+  background: #10b981;
+  color: white;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  box-shadow: var(--shadow-sm);
+}
+
+.inventory-drawer {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  padding: 12px;
+  background: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.drawer-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.drawer-items {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.drawer-item {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.drawer-item img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.drawer-item.selected {
+  border-color: var(--primary);
+}
+
+.selected-overlay {
+  position: absolute; inset: 0;
+  background: rgba(9, 177, 186, 0.7);
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+}
+
+.add-cash-btn {
+  background: var(--bg-color);
+  border: 1px dashed #10b981;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm);
+  min-width: 48px;
+  cursor: pointer;
+}
+
+.trade-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background: var(--bg-color);
+  position: relative;
+}
+
+.trade-divider svg {
+  color: var(--text-muted);
+  background: var(--surface-color);
+  border-radius: 50%;
+  padding: 4px;
+  width: 32px; height: 32px;
+  box-shadow: var(--shadow-sm);
+  position: absolute;
+}
+
+.trade-actions {
+  padding: 16px 20px;
+  background: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.balance-info {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.balance-ok { color: #10b981; }
+.balance-warn { color: #f59e0b; }
+
+.submit-offer-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+}

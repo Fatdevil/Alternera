@@ -1,21 +1,22 @@
+import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 import './Inbox.css';
 
 const CONVERSATIONS = [
-  { id: 1, user: '@vintage_lover', avatar: 'V', type: 'hybrid', summary: 'Erbjuder: Levi\'s 501 + 200 kr', status: 'Väntar på dig', unread: true },
-  { id: 2, user: '@anna_p', avatar: 'A', type: 'swap', summary: 'Ren bytesförfrågan (Ganni)', status: 'Avslutad', unread: false },
-  { id: 3, user: '@sneakerhead', avatar: 'S', type: 'buy', summary: 'Vill köpa din Skinnjacka (800 kr)', status: 'Accepterad', unread: false },
+  { id: 1, user: '@anna_ps Hushåll', avatar: 'A', type: 'hybrid', summary: 'Förhandlar: Pjäxor mot Damtopp', status: 'Väntar på dig', unread: true },
+  { id: 2, user: '@vintage_lover', avatar: 'V', type: 'swap', summary: 'Ren bytesförfrågan (Fotbollsskor)', status: 'Avslutad', unread: false },
 ];
 
 const Inbox = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
-      <header className="page-header">
-        <h1>Meddelanden</h1>
-      </header>
+      <Header />
       
       <div className="inbox-list">
         {CONVERSATIONS.map(conv => (
-          <div key={conv.id} className={`inbox-item ${conv.unread ? 'unread' : ''}`}>
+          <div key={conv.id} className={`inbox-item ${conv.unread ? 'unread' : ''}`} onClick={() => navigate('/trade')}>
             <div className="inbox-avatar">{conv.avatar}</div>
             
             <div className="inbox-content">
@@ -23,7 +24,6 @@ const Inbox = () => {
                 <h3>{conv.user}</h3>
                 {conv.type === 'hybrid' && <span className="type-badge hybrid">Byte+Cash</span>}
                 {conv.type === 'swap' && <span className="type-badge swap">Rakt Byte</span>}
-                {conv.type === 'buy' && <span className="type-badge buy">Köp</span>}
               </div>
               
               <p className="inbox-summary">{conv.summary}</p>

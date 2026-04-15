@@ -1,40 +1,50 @@
+import { useState } from 'react';
+import Header from '../components/Header';
 import './Showroom.css';
 
 const MOCK_ITEMS = [
-  { id: 1, title: 'Acne Studios T-shirt', brand: 'Acne', size: 'M', status: 'swap', img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80' },
-  { id: 2, title: 'Levi\'s 501', brand: 'Levi\'s', size: 'W30 L32', status: 'sell', price: '450 kr', img: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80' },
-  { id: 3, title: 'Vintage Skinnjacka', brand: 'Vintage', size: 'L', status: 'swap-sell', price: '800 kr', img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=400&q=80' },
-  { id: 4, title: 'COS Tröja', brand: 'COS', size: 'M', status: 'not-for-sale', img: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=400&q=80' },
+  { id: 1, profile: 'mom', title: 'Acne T-shirt', brand: 'Acne', size: 'M', img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80' },
+  { id: 2, profile: 'mom', title: 'Levi\'s 501', brand: 'Levi\'s', size: 'W30', img: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80' },
+  { id: 3, profile: 'leo', title: 'Vinteroverall', brand: 'Polarn O. Pyret', size: '110', img: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=400&q=80' },
+  { id: 4, profile: 'sport', title: 'Hockeyrör', brand: 'Bauer', size: '36', img: 'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?auto=format&fit=crop&w=400&q=80' },
 ];
 
 const Showroom = () => {
+  const [activeTab, setActiveTab] = useState('all');
+
+  const filteredItems = activeTab === 'all' 
+    ? MOCK_ITEMS 
+    : MOCK_ITEMS.filter(i => i.profile === activeTab);
+
   return (
     <div>
-      <header className="page-header">
-        <h1>Mitt Showroom</h1>
-      </header>
+      <Header />
 
       <div className="profile-banner">
-        <div className="profile-avatar">S</div>
+        <div className="profile-avatar">F</div>
         <div className="profile-info">
-          <h2>@stellanb</h2>
-          <p>Stockholm • 12 plagg online</p>
+          <h2>Familjen Borg</h2>
+          <p>Stockholm • 12 plagg uppe för byte</p>
         </div>
-        <button className="btn btn-outline" style={{marginLeft: 'auto'}}>Redigera</button>
+        <button className="btn btn-outline" style={{marginLeft: 'auto'}}>Konto</button>
+      </div>
+
+      <div className="showroom-tabs">
+        <button className={`tab ${activeTab === 'all' ? 'active' : ''}`} onClick={() => setActiveTab('all')}>Hela Hushållet</button>
+        <button className={`tab ${activeTab === 'mom' ? 'active' : ''}`} onClick={() => setActiveTab('mom')}>Mamma</button>
+        <button className={`tab ${activeTab === 'leo' ? 'active' : ''}`} onClick={() => setActiveTab('leo')}>Leo</button>
+        <button className={`tab ${activeTab === 'sport' ? 'active' : ''}`} onClick={() => setActiveTab('sport')}>Sport</button>
       </div>
 
       <div className="showroom-grid">
-        {MOCK_ITEMS.map((item) => (
+        {filteredItems.map((item) => (
           <div key={item.id} className="item-card">
             <div className="image-container">
               <img src={item.img} alt={item.title} />
-              {item.status === 'sell' && <span className="badge badge-sell">Säljes</span>}
-              {item.status === 'swap' && <span className="badge badge-swap">Bytes</span>}
-              {item.status === 'swap-sell' && <span className="badge badge-hybrid">Byte / Köp</span>}
-              {item.status === 'not-for-sale' && <span className="badge badge-locked">Privat</span>}
+              <span className="badge badge-swap">Bytes</span>
             </div>
             <div className="item-details">
-              <span className="price-tag">{item.price || 'Bytes'}</span>
+              <span className="price-tag">Öppen</span>
               <p className="item-brand">{item.brand}</p>
               <p className="item-size">{item.size}</p>
             </div>

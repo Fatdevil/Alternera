@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { X, Heart } from 'lucide-react';
+import Header from '../components/Header';
 import './Swap.css';
 
 const SWAP_POOL = [
@@ -17,15 +18,13 @@ const Swap = () => {
     setTimeout(() => {
       setCurrentIndex((prev) => prev + 1);
       setDirection('');
-    }, 300); // match CSS animation
+    }, 300);
   };
 
   if (currentIndex >= SWAP_POOL.length) {
     return (
       <div className="swap-empty">
-        <header className="page-header">
-          <h1>Upptäck</h1>
-        </header>
+        <Header />
         <div className="empty-state">
           <Heart size={48} color="#ddd" />
           <p>Inga fler plagg i din storlek just nu!</p>
@@ -39,9 +38,7 @@ const Swap = () => {
 
   return (
     <div className="swap-container">
-      <header className="page-header">
-        <h1>Upptäck</h1>
-      </header>
+      <Header />
 
       <div className="swipe-area">
         <div className={`swipe-card ${direction}`}>
