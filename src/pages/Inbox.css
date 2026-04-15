@@ -1,0 +1,85 @@
+.inbox-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.inbox-item {
+  display: flex;
+  padding: 16px 20px;
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  gap: 16px;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.inbox-item:active {
+  background: var(--bg-color);
+}
+
+.inbox-item.unread {
+  background: rgba(9, 177, 186, 0.03);
+}
+
+.inbox-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.inbox-item.unread .inbox-avatar {
+  background: var(--primary);
+  color: white;
+}
+
+.inbox-content {
+  flex: 1;
+}
+
+.inbox-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.inbox-header-row h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.type-badge {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.type-badge.hybrid { background: #e0e7ff; color: #4338ca; }
+.type-badge.swap { background: #ccfbf1; color: #0f766e; }
+.type-badge.buy { background: #f3f4f6; color: #374151; }
+
+.inbox-summary {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.inbox-status {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.unread-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+}
