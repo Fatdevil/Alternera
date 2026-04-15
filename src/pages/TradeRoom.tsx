@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, Plus, Check } from 'lucide-react';
+import { ArrowLeft, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './TradeRoom.css';
 
@@ -21,7 +21,7 @@ const TradeRoom = () => {
   const [theirOffer, setTheirOffer] = useState<{ id: number; title: string; price: number; img: string }[]>([]);
   
   const [myCash, setMyCash] = useState(0);
-  const [theirCash, setTheirCash] = useState(0);
+  const [theirCash] = useState(0);
 
   const toggleItem = (item: any, isMine: boolean) => {
     if (isMine) {
