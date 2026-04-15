@@ -63,7 +63,7 @@ const TradeRoom = () => {
               <span className="drawer-label">Våra plagg:</span>
               <div className="drawer-items">
                 {myItems.map(item => (
-                  <div key={item.id} className={\`drawer-item \${myOffer.includes(item) ? 'selected' : ''}\`} onClick={() => toggleItem(item, true)}>
+                  <div key={item.id} className={`drawer-item ${myOffer.includes(item) ? 'selected' : ''}`} onClick={() => toggleItem(item, true)}>
                     <img src={item.img} />
                     {myOffer.includes(item) && <div className="selected-overlay"><Check size={16}/></div>}
                   </div>
@@ -92,7 +92,7 @@ const TradeRoom = () => {
                <span className="drawer-label">Att plocka från Anna:</span>
                <div className="drawer-items">
                 {theirItems.map(item => (
-                  <div key={item.id} className={\`drawer-item \${theirOffer.includes(item) ? 'selected' : ''}\`} onClick={() => toggleItem(item, false)}>
+                  <div key={item.id} className={`drawer-item ${theirOffer.includes(item) ? 'selected' : ''}`} onClick={() => toggleItem(item, false)}>
                     <img src={item.img} />
                     {theirOffer.includes(item) && <div className="selected-overlay"><Check size={16}/></div>}
                   </div>

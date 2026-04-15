@@ -23,7 +23,7 @@ const Header = () => {
             <h1>{activeProfile.name}</h1>
             <span>Swipar just nu som</span>
           </div>
-          <ChevronDown size={20} className={\`chevron \${isOpen ? 'open' : ''}\`} />
+          <ChevronDown size={20} className={`chevron ${isOpen ? 'open' : ''}`} />
         </div>
       </header>
 
@@ -35,7 +35,7 @@ const Header = () => {
             {PROFILES.map((prof) => (
               <div 
                 key={prof.id} 
-                className={\`dropdown-item \${activeProfile.id === prof.id ? 'active' : ''}\`}
+                className={`dropdown-item ${activeProfile.id === prof.id ? 'active' : ''}`}
                 onClick={() => { setActiveProfile(prof); setIsOpen(false); }}
               >
                 <div className="profile-icon">
